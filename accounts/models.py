@@ -11,17 +11,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         'Usuário', max_length=30, null=False, blank=False,
         unique=True, error_messages={'unique' : "Usuário já cadastrado!"},
-        help_text='Um nome curto para a sua identificação exclusiva no sistema.'
+        help_text='A short name for your unique identification in the system.'
     )
 
     name = models.CharField(
-        'Nome', max_length=255, null=False, blank=False
+        'Nome', max_length=255, null=False, blank=False,
+        help_text='Your name, preferably your full name.'
     )
 
     email = models.EmailField(
         'E-mail', blank=False, null=False, unique=True,
         error_messages = {'unique' : "E-mail já cadastrado!"},
-        help_text = 'Para envio de notificações se caso necessário.'
+        help_text = 'A valid email for sending notifications if necessary.'
     )
 
     is_staff = models.BooleanField(default = False)
