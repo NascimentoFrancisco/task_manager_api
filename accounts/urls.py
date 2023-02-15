@@ -8,10 +8,6 @@ from .views import (
     UserCreateViewApi, UserUpdateAPIView,
     UserDeleteAPIView, ChangePasswordUserView
 )
-""" from .tasks_viewssets import (
-    TaskViewsSets, TaskCreateAPIView, TaskUpdateAPIView,
-    TaskDeleteAPIView, TaskFinishAPIView, TaskListAPIView
-) """
 
 
 app_name = "api_accounts"
@@ -28,9 +24,3 @@ urlpatterns = [
         name='update_user_api'
     ),
 ]
-
-""" path('task/create/', TaskCreateAPIView.as_view(), name='create_tastk_api'),
-    path('task/list/', TaskListAPIView.as_view(), name='create_tastk_api'),
-    path('task/update/<int:id>/', TaskUpdateAPIView.as_view(), name='update_tastk_api'),
-    path('task/delete/<int:id>/', TaskDeleteAPIView.as_view(), name='delete_tastk_api'),
-    path('task/finish/<int:id>/', TaskFinishAPIView.as_view(), name='finish_tastk_api'), """

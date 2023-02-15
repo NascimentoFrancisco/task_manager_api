@@ -11,12 +11,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         'Usuário', max_length=30, null=False, blank=False,
         unique=True, error_messages={'unique' : "Usuário já cadastrado!"},
-        help_text='A short name for your unique identification in the system.'
     )
 
     name = models.CharField(
         'Nome', max_length=255, null=False, blank=False,
-        help_text='Your name, preferably your full name.'
     )
 
     email = models.EmailField(

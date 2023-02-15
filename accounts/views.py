@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework import generics, status
 from rest_framework.response import Response
 from django.contrib.auth.password_validation import validate_password
@@ -9,13 +8,6 @@ from .accounts_serializer import (
     UserSerializer, CreateUserSerializer, ChangePasswordSerializer
 )
 
-""" class UserViewSet(viewsets.ModelViewSet):
-    
-    EndPoint que permite ver todos os usuários do sistema.
-    
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
- """
 
 class UserCreateViewApi(generics.CreateAPIView):
     """

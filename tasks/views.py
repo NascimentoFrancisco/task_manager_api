@@ -1,15 +1,8 @@
-from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
 from .tasks_serializer import TaskSerializer, TaskFinishSerializer
 from tasks.models import Task
-
-
-""" class TaskViewsSets(viewsets.ModelViewSet):
-    
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer """
 
 
 class TaskCreateAPIView(generics.CreateAPIView):
@@ -29,12 +22,11 @@ class TaskListAPIView(generics.ListAPIView):
     """
     permission_classes = [IsAuthenticated]
     serializer_class = TaskSerializer
-
+    
     def get_queryset(self):
 
         queryset = Task.objects.filter(user=self.request.user)
         return queryset
-
 
 class TaskUpdateAPIView(generics.UpdateAPIView):
     """

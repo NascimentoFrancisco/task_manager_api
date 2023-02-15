@@ -9,6 +9,15 @@ class TaskSerializer(serializers.ModelSerializer):
     
     id = serializers.IntegerField(read_only=True)
     user = UserSerializer(read_only=True)
+    title = serializers.CharField(
+        help_text='General title of the task.'
+    )
+    description =  serializers.CharField(
+        help_text='Text that explains more details about the task.'        
+    )
+    deadline_date = serializers.DateTimeField(
+        help_text='Task expiration date/time. In YYYY-MM-DD hh:mm format.'
+    )
     status = serializers.BooleanField(read_only=True)
     punctuality = serializers.BooleanField(read_only=True)
     creation_date = serializers.DateTimeField(read_only=True)

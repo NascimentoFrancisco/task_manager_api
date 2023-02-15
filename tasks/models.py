@@ -11,17 +11,10 @@ class Task(models.Model):
     )
     title = models.CharField(
         'Título', max_length=150, blank=False, null=False,
-        help_text='General title of the task.'
     )
-    description = models.TextField(
-        'Descrição',
-        help_text='Text that explains more details about the task.'    
-    )
+    description = models.TextField('Descrição')
     creation_date = models.DateTimeField('Data de criação', auto_now_add=True)
-
-    deadline_date = models.DateTimeField('Data prazo',
-        help_text='Task expiration date/time.'
-    )
+    deadline_date = models.DateTimeField('Data prazo')
     date_conclusion = models.DateTimeField('Data de conclusão', auto_now=True)
     status = models.BooleanField('Status', default=False)
     punctuality = models.BooleanField('Pontualidade', default=False)
