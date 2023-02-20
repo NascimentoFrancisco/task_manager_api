@@ -14,7 +14,6 @@ app_name = "api_accounts"
 
 
 urlpatterns = [
-    #path('',include(router.urls), name='api_accounts'),
     path('user/token/', TokenObtainPairView.as_view()),
     path('user/token/refresh/',TokenRefreshView.as_view()),
     path('user/create/', UserCreateViewApi.as_view(), name='create_user_api'),

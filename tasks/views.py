@@ -39,6 +39,25 @@ class TaskUpdateAPIView(generics.UpdateAPIView):
     lookup_field = 'id'
 
 
+class TaskStartAPIView(generics.UpdateAPIView):
+
+    permission_classes = [IsAuthenticated]
+
+    queryset = Task.objects.all()
+    serializer_class = TaskFinishSerializer
+    lookup_field = 'id'
+
+    def perform_update(self, serializer):
+        
+        now = timezone.now()
+
+        serializer.save(
+            startup_date = now,
+            start_task = True,
+        )
+
+
+
 class TaskFinishAPIView(generics.UpdateAPIView):
     """
     EndPoint that updates the status of a task that the user passes the id parameter, 
